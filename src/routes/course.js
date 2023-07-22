@@ -9,6 +9,7 @@ import {
   addTeacherToCourse,
   removeTeacherFromCourse,
   getCoursesByTeacher,
+  getTeachersByCourse,
 } from "../controllers/course.js";
 
 const router = express.Router();
@@ -19,5 +20,6 @@ router.route("/:id/teachers/add").put(addTeacherToCourse);
 router.route("/:id/teachers/remove").put(removeTeacherFromCourse);
 router.route("/teacher/:id").get(getCoursesByTeacher);
 router.route("/name/:name").get(getCoursesByName);
+router.route("/:id/teachers").get(getTeachersByCourse);
 
 export default router;

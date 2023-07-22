@@ -9,6 +9,12 @@ const ReviewSchema = mongoose.Schema(
     idCourse: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Course",
+      required: true,
+    },
+    idTeacher: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Teacher",
+      required: true,
     },
     rating: {
       type: Number,

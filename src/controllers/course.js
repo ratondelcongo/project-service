@@ -137,6 +137,19 @@ const getCoursesByTeacher = asyncHandler(async (req, res) => {
   res.status(201).json(courses);
 });
 
+// @description     List Teachers by Course
+// @route           GET /api/courses/:id/teachers
+// @access          Public
+const getTeachersByCourse = asyncHandler(async (req, res) => {
+  const course = await Course.findById(req.params.id).populate("teachers");
+
+  if (!course) {
+    res.status(404).json({ message: "Curso no encontrado" });
+  }
+
+  res.status(201).json(course.teachers);
+});
+
 export {
   getCourses,
   getCourseById,
@@ -147,4 +160,5 @@ export {
   addTeacherToCourse,
   removeTeacherFromCourse,
   getCoursesByTeacher,
+  getTeachersByCourse,
 };
